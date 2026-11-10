@@ -1,19 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha PWA Exemplo</title>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Formulário de feedback sobre a experiência com o 221 Snack."
+    />
+    <title>Feedback | 221 Snack</title>
+
     <!-- Link para o Web App Manifest -->
     <link rel="manifest" href="manifest.json">
-    
-    <!-- Cor do tema para navegadores mobile -->
-    <meta name="theme-color" content="#4f46e5">
-</head>
-<body>
-    <h1>Olá, eu sou uma PWA! 🚀</h1>
-    <p>Abra este site e tente usá-lo ou instalá-lo.</p>
+    <!-- Cor do tema para navegadores mobile (mesma do topo laranja) -->
+    <meta name="theme-color" content="#f58a15">
+
+    <!-- iOS: ícone e comportamento de app instalado -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="221 Snack">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <button class="back-button" type="button" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 12H5m6-6-6 6 6 6"></path>
+          </svg>
+        </button>
+        <div class="brand" aria-label="221 Snack">
+          <span class="brand-number">221</span>
+          <span class="brand-name">SNACK</span>
+        </div>
+      </header>
+
+      <div id="feedback-view" class="content">
+        <section class="intro">
+          <p class="eyebrow">Sua opinião importa</p>
+          <h1>Como foi sua experiência?</h1>
+          <p>
+            Conte pra gente como foi usar o 221 Snack. É rapidinho e ajuda muito a melhorar nossos
+            serviços.
+          </p>
+        </section>
+
+        <form id="feedback-form">
+          <section class="form-card rating-card">
+            <div class="question-heading">
+              <span class="question-number">01</span>
+              <div>
+                <h2>De modo geral, o que você achou?</h2>
+                <p>Toque nas estrelas para avaliar</p>
+              </div>
+            </div>
+
+            <div class="rating-group" role="radiogroup" aria-label="Avaliação">
+              <button
+                class="star-button"
+                type="button"
+                role="radio"
+                aria-label="1 estrela — Muito ruim"
+                aria-checked="false"
+                data-rating="1"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                class="star-button"
+                type="button"
+                role="radio"
+                aria-label="2 estrelas — Ruim"
+                aria-checked="false"
+                data-rating="2"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                class="star-button"
+                type="button"
+                role="radio"
+                aria-label="3 estrelas — Regular"
+                aria-checked="false"
+                data-rating="3"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                class="star-button"
+                type="button"
+                role="radio"
+                aria-label="4 estrelas — Bom"
+                aria-checked="false"
+                data-rating="4"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                class="star-button"
+                type="button"
+                role="radio"
+                aria-label="5 estrelas — Excelente"
+                aria-checked="false"
+                data-rating="5"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div id="rating-label" class="rating-label">Selecione uma nota</div>
+          </section>
+
+          <section class="form-card">
+            <div class="question-heading">
+              <span class="question-number">02</span>
+              <div>
+                <h2>O que mais influenciou sua experiência?</h2>
+                <p>Você pode escolher mais de uma opção</p>
+              </div>
+            </div>
+
+            <div class="topic-list">
+              <button class="topic-chip" type="button" aria-pressed="false">
+                <span class="topic-check" aria-hidden="true"></span>
+                Facilidade de uso
+              </button>
+              <button class="topic-chip" type="button" aria-pressed="false">
+                <span class="topic-check" aria-hidden="true"></span>
+                Variedade de produtos
+              </button>
+              <button class="topic-chip" type="button" aria-pressed="false">
+                <span class="topic-check" aria-hidden="true"></span>
+                Tempo de entrega
+              </button>
+              <button class="topic-chip" type="button" aria-pressed="false">
+                <span class="topic-check" aria-hidden="true"></span>
+                Atendimento
+              </button>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="question-heading">
+              <span class="question-number">03</span>
+              <div>
+                <h2>Quer contar mais alguma coisa?</h2>
+                <p>Opcional</p>
+              </div>
+            </div>
+            <label class="sr-only" for="message"> Escreva seu comentário </label>
+            <textarea
+              id="message"
+              maxlength="400"
+              placeholder="Escreva aqui sua sugestão, elogio ou algo que podemos melhorar..."
+            ></textarea>
+          </section>
+
+          <button class="submit-button" type="submit" disabled>Enviar feedback</button>
+          <p class="submit-hint">Escolha uma nota para enviar</p>
+        </form>
+
+        <p class="privacy-note">Sua resposta é anônima e leva menos de 1 minuto.</p>
+      </div>
+
+      <section id="success-view" class="success-page" hidden>
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m6.5 12.5 3.4 3.4 7.6-8"></path>
+          </svg>
+        </div>
+        <p class="eyebrow">Feedback enviado</p>
+        <h1>Obrigado por compartilhar!</h1>
+        <p class="success-copy">
+          Sua opinião ajuda a gente a tornar cada pedido ainda mais simples e gostoso.
+        </p>
+        <button class="secondary-button" type="button">Voltar ao formulário</button>
+      </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
 
     <!-- Script para registrar o Service Worker -->
     <script>
@@ -29,5 +216,5 @@
             });
         }
     </script>
-</body>
+  </body>
 </html>
